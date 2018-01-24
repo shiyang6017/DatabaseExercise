@@ -8,6 +8,7 @@ FROM department;
 #单关系条件查询
 SELECT * 
 FROM course;
+
 SELECT * 
 FROM course
 # >, <, >=, <=, =, <>
@@ -20,7 +21,21 @@ SELECT full_name, instructor.dept_name, building
 FROM instructor, department
 WHERE department.dept_name=instructor.dept_name;
 
-
 #自然连接
 SELECT full_name, instructor.dept_name, building
-FROM instructor natural join department
+FROM instructor natural join department;
+
+#左连接 
+SELECT * FROM instructor 
+left  join teaches 
+on (instructor.ID = teaches.ID);
+
+#右连接
+SELECT * FROM instructor
+right join teaches
+on (instructor.ID = teaches.ID);
+
+#inner连接
+SELECT * FROM instructor
+inner join teaches
+on (instructor.ID = teaches.ID);
